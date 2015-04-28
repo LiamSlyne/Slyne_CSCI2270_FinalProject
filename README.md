@@ -24,7 +24,8 @@ If you collect the maximum amount of items (6) you have a 100% chance to win.
 
 How to Run:
 
-	The program is run by a driver file called "JungleJam.cpp".
+	The program is run in a code blocks project that has a driver file
+named JungleGraph.cpp which has the void functions for the program.
 
 Dependencies:
 	
@@ -33,14 +34,9 @@ Dependencies:
 System Requirements:
 
 	Currently the program has only been tested on the VM given to us
-at the start of the semester.
+at the start of the semester in the Code Blocks IDE.
 
 Known Issues and Bugs:
 
-	The current state of my program is not building the Graph in the 
-main function of JungleJam.cpp and I am not sure why.  In the main menu of
-the game 5/8 options are working.  It is quite hard to test the other
-three functions that let you move about the graph and collect gold
-from the jungle and lanes in order to buy more items ultimately allowing
-you a greater chance to win the game.  Becuase of the issue with the graph
-I have not been able to make the functions for the "meat" of the game.
+	In the main menu of the game 5/8 options are working.
+Options 1, 2, 3, 4, and 8 work while 5, 6, and 7 do not.
