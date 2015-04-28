@@ -38,5 +38,7 @@ at the start of the semester in the Code Blocks IDE.
 
 Known Issues and Bugs:
 
-In the main menu of the game 5/8 options are working.
-Options 1, 2, 3, 4, and 8 work while 5, 6, and 7 do not.
+In the main menu of the game 6/8 options are working.
+Options 1, 2, 3, 4, 6, and 8 work while 5 and 7 do not.
+Need to still some how implement the graph edges and add them to the
+current time to have a time limit of 25 minutes.
