@@ -137,10 +137,10 @@ void Graph::findShortestDistance(string starting, string destination)
             path.push_back(temp->name);
             temp = temp->previous;
         }
-        cout << d->distance;
+        cout << "It took " << d->distance << " seconds for you to travel ";
         for (int i = path.size() - 1; i >=0; i--)
         {
-            cout << "," << path[i];
+            cout << "--->" << path[i];
         }
         cout << endl;
     }

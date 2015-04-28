@@ -118,7 +118,7 @@ int main()
         cin >> choice;
     }
     string pick = "";
-    while(pick != "7")//simulation menu
+    while(pick != "8")//simulation menu
     {
         cout << "What do you want to do " << summoner1.name << "?" << endl;
         cout << "1. View current gold." << endl;
@@ -127,8 +127,8 @@ int main()
         cout << "4. View current time." << endl;
         cout << "5. View Map" << endl;
         cout << "6. Choose where to go next." << endl;
-        //cout << "7. Help a teammate in their lane." << endl;
-        cout << "7. Surrender." << endl;
+        cout << "7. Help a teammate in their lane." << endl;
+        cout << "8. Surrender." << endl;
         cin >> pick;
         if(pick == "1") // option to see how much current gold you have
         {
@@ -140,219 +140,226 @@ int main()
             {
                 cout << i+1 << ". " << summoner1.items[i] << endl;
             }
-            int wChoice; // store
-            cout << "Pick a number corresponding with the item you wish to purchase." << endl;
-            cout << "Ability Power Items:" << endl;
-            cout << "1. Trailblazer:1500  2. Echo:2000     3. Deathcap:2500" << endl;
-            cout << "4. Hourglass:2000    5. Rod:2250      6. VoidStaff:1750" << endl;
-            cout << "Attack Speed Items:" << endl;
-            cout << "7. Blade:1500        8. Zephyr:2250   9. Ghostblade:2000" << endl;
-            cout << "10.Phantom:2500      11.Statikk:1750  12.WitsEnd:2000" << endl;
-            cout << "Physical Damage Items:" << endl;
-            cout << "13.Poacher:1500      14.Trinity:2500  15.Bloodthirster:2250" << endl;
-            cout << "16.Reaver:2000       17.Whispers:1750 18.Scimitar:2000" << endl;
-            cin >> wChoice; // weapon choice must be an integer
+            if(summoner1.currentLocation == "Base")
+            {
+                int wChoice; // store
+                cout << "Pick a number corresponding with the item you wish to purchase." << endl;
+                cout << "Ability Power Items:" << endl;
+                cout << "1. Trailblazer:1500  2. Echo:2000     3. Deathcap:2500" << endl;
+                cout << "4. Hourglass:2000    5. Rod:2250      6. VoidStaff:1750" << endl;
+                cout << "Attack Speed Items:" << endl;
+                cout << "7. Blade:1500        8. Zephyr:2250   9. Ghostblade:2000" << endl;
+                cout << "10.Phantom:2500      11.Statikk:1750  12.WitsEnd:2000" << endl;
+                cout << "Physical Damage Items:" << endl;
+                cout << "13.Poacher:1500      14.Trinity:2500  15.Bloodthirster:2250" << endl;
+                cout << "16.Reaver:2000       17.Whispers:1750 18.Scimitar:2000" << endl;
+                cin >> wChoice; // weapon choice must be an integer
 
 
-            if(wChoice == 1)//lots of if and else if statements that will add items to your inventory array
-            {
-                if(summoner1.gold >= 1500)
+                if(wChoice == 1)//lots of if and else if statements that will add items to your inventory array
                 {
-                    summoner1.items[j] = "Trailblazer";
-                    summoner1.gold = summoner1.gold - 1500;
-                    j++;
-                }else
+                    if(summoner1.gold >= 1500)
+                    {
+                        summoner1.items[j] = "Trailblazer";
+                        summoner1.gold = summoner1.gold - 1500;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 2)
                 {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    if(summoner1.gold >= 2000)
+                    {
+                        summoner1.items[j] = "Echo";
+                        summoner1.gold = summoner1.gold - 2000;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 3)
+                {
+                    if(summoner1.gold >= 2500)
+                    {
+                        summoner1.items[j] = "Deathcap";
+                        summoner1.gold = summoner1.gold - 2500;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 4)
+                {
+                    if(summoner1.gold >= 2000)
+                    {
+                        summoner1.items[j] = "Hourglass";
+                        summoner1.gold = summoner1.gold - 2000;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 5)
+                {
+                    if(summoner1.gold >= 2250)
+                    {
+                        summoner1.items[j] = "Rod";
+                        summoner1.gold = summoner1.gold - 2250;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 6)
+                {
+                    if(summoner1.gold >= 1750)
+                    {
+                        summoner1.items[j] = "VoidStaff";
+                        summoner1.gold = summoner1.gold - 1750;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 7)
+                {
+                    if(summoner1.gold >= 1500)
+                    {
+                        summoner1.items[j] = "Blade";
+                        summoner1.gold = summoner1.gold - 1500;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 8)
+                {
+                    if(summoner1.gold >= 2250)
+                    {
+                        summoner1.items[j] = "Zephyr";
+                        summoner1.gold = summoner1.gold - 2250;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 9)
+                {
+                    if(summoner1.gold >= 2000)
+                    {
+                        summoner1.items[j] = "Ghostblade";
+                        summoner1.gold = summoner1.gold - 2000;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 10)
+                {
+                    if(summoner1.gold >= 2500)
+                    {
+                        summoner1.items[j] = "Phantom";
+                        summoner1.gold = summoner1.gold - 2500;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 11)
+                {
+                    if(summoner1.gold >= 1750)
+                    {
+                        summoner1.items[j] = "Statikk";
+                        summoner1.gold = summoner1.gold - 1750;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 12)
+                {
+                    if(summoner1.gold >= 2000)
+                    {
+                        summoner1.items[j] = "WitsEnd";
+                        summoner1.gold = summoner1.gold - 2000;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 13)
+                {
+                    if(summoner1.gold >= 1500)
+                    {
+                        summoner1.items[j] = "Poacher";
+                        summoner1.gold = summoner1.gold - 1500;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 14)
+                {
+                    if(summoner1.gold >= 2500)
+                    {
+                        summoner1.items[j] = "Trinity";
+                        summoner1.gold = summoner1.gold - 2500;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 15)
+                {
+                    if(summoner1.gold >= 2250)
+                    {
+                        summoner1.items[j] = "Bloodthirster";
+                        summoner1.gold = summoner1.gold - 2250;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 16)
+                {
+                    if(summoner1.gold >= 2000)
+                    {
+                        summoner1.items[j] = "Reaver";
+                        summoner1.gold = summoner1.gold - 2000;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 17)
+                {
+                    if(summoner1.gold >= 1750)
+                    {
+                        summoner1.items[j] = "Whisperer";
+                        summoner1.gold = summoner1.gold - 1750;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
+                }else if(wChoice == 18)
+                {
+                    if(summoner1.gold >= 2000)
+                    {
+                        summoner1.items[j] = "Scimitar";
+                        summoner1.gold = summoner1.gold - 2000;
+                        j++;
+                    }else
+                    {
+                        cout << "Sorry you do not have enough gold to purchase that item." << endl;
+                    }
                 }
-            }else if(wChoice == 2)
+            }else
             {
-                if(summoner1.gold >= 2000)
-                {
-                    summoner1.items[j] = "Echo";
-                    summoner1.gold = summoner1.gold - 2000;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 3)
-            {
-                if(summoner1.gold >= 2500)
-                {
-                    summoner1.items[j] = "Deathcap";
-                    summoner1.gold = summoner1.gold - 2500;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 4)
-            {
-                if(summoner1.gold >= 2000)
-                {
-                    summoner1.items[j] = "Hourglass";
-                    summoner1.gold = summoner1.gold - 2000;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 5)
-            {
-                if(summoner1.gold >= 2250)
-                {
-                    summoner1.items[j] = "Rod";
-                    summoner1.gold = summoner1.gold - 2250;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 6)
-            {
-                if(summoner1.gold >= 1750)
-                {
-                    summoner1.items[j] = "VoidStaff";
-                    summoner1.gold = summoner1.gold - 1750;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 7)
-            {
-                if(summoner1.gold >= 1500)
-                {
-                    summoner1.items[j] = "Blade";
-                    summoner1.gold = summoner1.gold - 1500;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 8)
-            {
-                if(summoner1.gold >= 2250)
-                {
-                    summoner1.items[j] = "Zephyr";
-                    summoner1.gold = summoner1.gold - 2250;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 9)
-            {
-                if(summoner1.gold >= 2000)
-                {
-                    summoner1.items[j] = "Ghostblade";
-                    summoner1.gold = summoner1.gold - 2000;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 10)
-            {
-                if(summoner1.gold >= 2500)
-                {
-                    summoner1.items[j] = "Phantom";
-                    summoner1.gold = summoner1.gold - 2500;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 11)
-            {
-                if(summoner1.gold >= 1750)
-                {
-                    summoner1.items[j] = "Statikk";
-                    summoner1.gold = summoner1.gold - 1750;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 12)
-            {
-                if(summoner1.gold >= 2000)
-                {
-                    summoner1.items[j] = "WitsEnd";
-                    summoner1.gold = summoner1.gold - 2000;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 13)
-            {
-                if(summoner1.gold >= 1500)
-                {
-                    summoner1.items[j] = "Poacher";
-                    summoner1.gold = summoner1.gold - 1500;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 14)
-            {
-                if(summoner1.gold >= 2500)
-                {
-                    summoner1.items[j] = "Trinity";
-                    summoner1.gold = summoner1.gold - 2500;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 15)
-            {
-                if(summoner1.gold >= 2250)
-                {
-                    summoner1.items[j] = "Bloodthirster";
-                    summoner1.gold = summoner1.gold - 2250;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 16)
-            {
-                if(summoner1.gold >= 2000)
-                {
-                    summoner1.items[j] = "Reaver";
-                    summoner1.gold = summoner1.gold - 2000;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 17)
-            {
-                if(summoner1.gold >= 1750)
-                {
-                    summoner1.items[j] = "Whisperer";
-                    summoner1.gold = summoner1.gold - 1750;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
-            }else if(wChoice == 18)
-            {
-                if(summoner1.gold >= 2000)
-                {
-                    summoner1.items[j] = "Scimitar";
-                    summoner1.gold = summoner1.gold - 2000;
-                    j++;
-                }else
-                {
-                    cout << "Sorry you do not have enough gold to purchase that item." << endl;
-                }
+                cout << "You must return to Base in order to purchase items" << endl;
             }
+
         }else if(pick == "3")
         {
             cout << "Your current location is: " << summoner1.currentLocation << endl;
@@ -367,11 +374,98 @@ int main()
             void displayEdges();
         }else if(pick == "6")
         {
+            string destination = " ";
+            cout << "Where would you like to go?" << endl;
+            cin >> destination;
+            if(summoner1.currentLocation == destination)
+            {
+                cout << "You are already located at " << summoner1.currentLocation << "." << endl;
+            }
+            else
+            {
+                g.findShortestDistance(summoner1.currentLocation, destination);
+                summoner1.currentLocation = destination;
+                if(destination == "Blue")
+                {
+                    summoner1.gold = summoner1.gold + 100;
+                }else if(destination == "Gromp")
+                {
+                    summoner1.gold = summoner1.gold +60;
+                }else if(destination == "Wolves")
+                {
+                    summoner1.gold = summoner1.gold +75;
+                }else if(destination == "Raptors")
+                {
+                    summoner1.gold = summoner1.gold + 75;
+                }else if(destination == "Red")
+                {
+                    summoner1.gold = summoner1.gold + 100;
+                }else if(destination == "Krugs")
+                {
+                    summoner1.gold = summoner1.gold + 75;
+                }else if(destination == "Top")
+                {
+                    int gankChance = rand() % 100;
+                    if(gankChance >= 75)
+                    {
+                        cout << "Top Lane gank SUCCESS you gain 300 gold." << endl;
+                        summoner1.gold = summoner1.gold + 300;
+                    }else
+                    {
+                        cout << "Top Lane gank FAIL you only gain 50 gold." << endl;
+                        summoner1.gold = summoner1.gold + 50;
+                    }
+                }else if(destination == "Middle")
+                {
+                    int gankChance = rand() % 100;
+                    if(gankChance >= 75)
+                    {
+                        cout << "Middle Lane gank SUCCESS you gain 300 gold." << endl;
+                        summoner1.gold = summoner1.gold + 300;
+                    }else
+                    {
+                        cout << "Middle Lane gank FAIL you only gain 50 gold." << endl;
+                        summoner1.gold = summoner1.gold + 50;
+                    }
+                }else if(destination == "Bottom")
+                {
+                    int gankChance = rand() % 100;
+                    if(gankChance >= 75)
+                    {
+                        cout << "Bottom Lane gank SUCCESS you gain 300 gold." << endl;
+                        summoner1.gold = summoner1.gold + 300;
+                    }else
+                    {
+                        cout << "Bottom Lane gank FAIL you only gain 50 gold." << endl;
+                        summoner1.gold = summoner1.gold + 50;
+                    }
+                }
+            }
+        }else if(pick == "7")
+        {
 
-        }else if (pick == "7")//  "FF at 20" surrender at any time
+        }else if(pick == "8")//  "FF at 20" surrender at any time
         {
             cout << "DEFEAT" << endl;
+        }else if(summoner1.time >= 1500) //25 minutes
+        {
+            int winChance = rand() % 100;
+            int win = 40;
+            for(int i = 0; i < 6; i++)
+            {
+                if(summoner1.items[i] != " ")//every item you have gives you a 10% better chance to win the game
+                {
+                    win = win + 10;
+                }
+            }
+            if(win >= winChance)
+            {
+                cout << "VICTORY" << endl;
+            }else
+            {
+                cout << "DEFEAT" << endl;
+            }
+            pick == "8";
         }
     }
-
 }

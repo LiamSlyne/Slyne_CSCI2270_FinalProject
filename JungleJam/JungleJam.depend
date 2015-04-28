@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1430254435 source:/home/user/Dropbox/JungleJam/JungleGraph.cpp
+	"JungleGraph.h"
+	<vector>
+	<iostream>
+
+1430257624 /home/user/Dropbox/JungleJam/JungleGraph.h
+	<vector>
+	<iostream>
+
+1430257626 source:/home/user/Dropbox/JungleJam/main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<stdlib.h>
+	"JungleGraph.h"
+

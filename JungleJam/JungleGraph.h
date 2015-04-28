@@ -27,6 +27,8 @@ public:
     void addVertex(std::string name);
     void displayEdges();
     void findShortestDistance(std::string starting, std::string destination);
+    void viewADJvertex(std::string location);
+    void Dijkstra(std::string starting, std::string destination);
 protected:
 private:
     std::vector<vertex> vertices;
