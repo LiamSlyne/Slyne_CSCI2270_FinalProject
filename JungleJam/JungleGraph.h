@@ -21,6 +21,7 @@ struct vertex{
 class Graph
 {
 public:
+    int clockTemp;
     Graph();
     ~Graph();
     void addEdge(std::string v1, std::string v2, int weight);

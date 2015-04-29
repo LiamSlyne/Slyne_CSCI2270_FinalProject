@@ -58,7 +58,7 @@ int main()
     g.addEdge("Red", "Bottom", 16);
     g.addEdge("Krugs", "Bottom", 12);
 
-    summoner1.items[0] = " ";//setting up for the win requirements and function
+    summoner1.items[0] = " ";//setting up for the win requirements and at the end of the game
     summoner1.items[1] = " ";
     summoner1.items[2] = " ";
     summoner1.items[3] = " ";
@@ -68,7 +68,7 @@ int main()
     int j = 0;
     int minutes = 0;
     int seconds = 0;
-    summoner1.time = 0;
+    summoner1.time = 1300;
     summoner1.gold = 475;
     summoner1.currentLocation = "Base";
 
@@ -118,7 +118,7 @@ int main()
         cin >> choice;
     }
     string pick = "";
-    while(pick != "8")//simulation menu
+    while((pick != "7") || (summoner1.time > 1500))//simulation menu
     {
         cout << "What do you want to do " << summoner1.name << "?" << endl;
         cout << "1. View current gold." << endl;
@@ -127,8 +127,7 @@ int main()
         cout << "4. View current time." << endl;
         cout << "5. View Map" << endl;
         cout << "6. Choose where to go next." << endl;
-        cout << "7. Help a teammate in their lane." << endl;
-        cout << "8. Surrender." << endl;
+        cout << "7. Surrender." << endl;
         cin >> pick;
         if(pick == "1") // option to see how much current gold you have
         {
@@ -371,7 +370,7 @@ int main()
             cout << "The current time is: " << minutes << " minutes and " << seconds << " seconds." <<endl;
         }else if(pick == "5")
         {
-            void displayEdges();
+            g.displayEdges();
         }else if(pick == "6")
         {
             string destination = " ";
@@ -387,21 +386,27 @@ int main()
                 summoner1.currentLocation = destination;
                 if(destination == "Blue")
                 {
+                    summoner1.time = summoner1.time + 8;
                     summoner1.gold = summoner1.gold + 100;
                 }else if(destination == "Gromp")
                 {
+                    summoner1.time = summoner1.time + 5;
                     summoner1.gold = summoner1.gold +60;
                 }else if(destination == "Wolves")
                 {
+                    summoner1.time = summoner1.time + 5;
                     summoner1.gold = summoner1.gold +75;
                 }else if(destination == "Raptors")
                 {
+                    summoner1.time = summoner1.time + 4;
                     summoner1.gold = summoner1.gold + 75;
                 }else if(destination == "Red")
                 {
+                    summoner1.time = summoner1.time + 8;
                     summoner1.gold = summoner1.gold + 100;
                 }else if(destination == "Krugs")
                 {
+                    summoner1.time = summoner1.time + 6;
                     summoner1.gold = summoner1.gold + 75;
                 }else if(destination == "Top")
                 {
@@ -410,10 +415,12 @@ int main()
                     {
                         cout << "Top Lane gank SUCCESS you gain 300 gold." << endl;
                         summoner1.gold = summoner1.gold + 300;
+                        summoner1.time = summoner1.time + 10;
                     }else
                     {
                         cout << "Top Lane gank FAIL you only gain 50 gold." << endl;
                         summoner1.gold = summoner1.gold + 50;
+                        summoner1.time = summoner1.time + 5;
                     }
                 }else if(destination == "Middle")
                 {
@@ -422,10 +429,12 @@ int main()
                     {
                         cout << "Middle Lane gank SUCCESS you gain 300 gold." << endl;
                         summoner1.gold = summoner1.gold + 300;
+                        summoner1.time = summoner1.time + 10;
                     }else
                     {
                         cout << "Middle Lane gank FAIL you only gain 50 gold." << endl;
                         summoner1.gold = summoner1.gold + 50;
+                        summoner1.time = summoner1.time + 5;
                     }
                 }else if(destination == "Bottom")
                 {
@@ -434,19 +443,20 @@ int main()
                     {
                         cout << "Bottom Lane gank SUCCESS you gain 300 gold." << endl;
                         summoner1.gold = summoner1.gold + 300;
+                        summoner1.time = summoner1.time + 10;
                     }else
                     {
                         cout << "Bottom Lane gank FAIL you only gain 50 gold." << endl;
                         summoner1.gold = summoner1.gold + 50;
+                        summoner1.time = summoner1.time + 5;
                     }
                 }
+                summoner1.time = summoner1.time + g.clockTemp; // adds the time
             }
-        }else if(pick == "7")
-        {
-
-        }else if(pick == "8")//  "FF at 20" surrender at any time
+        }else if(pick == "7")//  "FF at 20" surrender at any time
         {
             cout << "DEFEAT" << endl;
+            return 0;
         }else if(summoner1.time >= 1500) //25 minutes
         {
             int winChance = rand() % 100;
@@ -465,7 +475,7 @@ int main()
             {
                 cout << "DEFEAT" << endl;
             }
-            pick == "8";
+            return 0;
         }
     }
 }

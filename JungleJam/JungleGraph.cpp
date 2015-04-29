@@ -1,4 +1,3 @@
-
 #include "JungleGraph.h"
 #include <vector>
 #include <iostream>
@@ -7,7 +6,7 @@ using namespace std;
 
 Graph::Graph()
 {
-
+    clockTemp = 0;
 }
 
 Graph::~Graph()
@@ -65,7 +64,7 @@ void Graph::displayEdges()
         cout << vertices[i].name << "--->";
         for(int j = 0; j < vertices[i].adj.size(); j++)
         {
-            cout << vertices[i].adj[j].v->name << "***";
+            cout << vertices[i].adj[j].v->name << " - ";
         }
         cout << endl;
     }
@@ -138,6 +137,7 @@ void Graph::findShortestDistance(string starting, string destination)
             temp = temp->previous;
         }
         cout << "It took " << d->distance << " seconds for you to travel ";
+        clockTemp = d->distance;
         for (int i = path.size() - 1; i >=0; i--)
         {
             cout << "--->" << path[i];
@@ -147,4 +147,9 @@ void Graph::findShortestDistance(string starting, string destination)
     if (find1 == false || find2 == false){
         cout << "That location does not exist." << endl;
     }
+}
+
+void Graph::viewADJvertex(string location)
+{
+
 }
