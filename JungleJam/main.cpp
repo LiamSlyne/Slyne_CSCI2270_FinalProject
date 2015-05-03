@@ -68,7 +68,7 @@ int main()
     int j = 0;
     int minutes = 0;
     int seconds = 0;
-    summoner1.time = 1300;
+    summoner1.time = 0;
     summoner1.gold = 475;
     summoner1.currentLocation = "Base";
 
@@ -118,7 +118,7 @@ int main()
         cin >> choice;
     }
     string pick = "";
-    while((pick != "7") || (summoner1.time > 1500))//simulation menu
+    while(summoner1.time < 1500)//simulation menu
     {
         cout << "What do you want to do " << summoner1.name << "?" << endl;
         cout << "1. View current gold." << endl;
@@ -454,28 +454,26 @@ int main()
                 summoner1.time = summoner1.time + g.clockTemp; // adds the time
             }
         }else if(pick == "7")//  "FF at 20" surrender at any time
-        {
+            {
             cout << "DEFEAT" << endl;
             return 0;
-        }else if(summoner1.time >= 1500) //25 minutes
-        {
-            int winChance = rand() % 100;
-            int win = 40;
-            for(int i = 0; i < 6; i++)
-            {
-                if(summoner1.items[i] != " ")//every item you have gives you a 10% better chance to win the game
-                {
-                    win = win + 10;
-                }
             }
-            if(win >= winChance)
-            {
-                cout << "VICTORY" << endl;
-            }else
-            {
-                cout << "DEFEAT" << endl;
-            }
-            return 0;
         }
+        int winChance = rand() % 100;
+        int win = 40;
+        for(int i = 0; i < 6; i++)
+        {
+            if(summoner1.items[i] != " ")//every item you have gives you a 10% better chance to win the game
+            {
+                win = win + 10;
+            }
+        }
+        if(win >= winChance)
+        {
+            cout << "VICTORY" << endl;
+        }else
+        {
+            cout << "DEFEAT" << endl;
     }
+    return 0;
 }
