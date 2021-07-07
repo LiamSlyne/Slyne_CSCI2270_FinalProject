@@ -152,6 +152,7 @@ int main()
                 cout << "Physical Damage Items:" << endl;
                 cout << "13.Poacher:1500      14.Trinity:2500  15.Bloodthirster:2250" << endl;
                 cout << "16.Reaver:2000       17.Whispers:1750 18.Scimitar:2000" << endl;
+                cout << "19.Exit Store" << endl;
                 cin >> wChoice; // weapon choice must be an integer
 
 
@@ -353,6 +354,9 @@ int main()
                     {
                         cout << "Sorry you do not have enough gold to purchase that item." << endl;
                     }
+                }else if(wChoice == 19)
+                {
+                    cout << "Returning" << endl;
                 }
             }else
             {
